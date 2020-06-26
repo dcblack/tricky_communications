@@ -1,10 +1,11 @@
 #ifndef MAILBOX_HPP
 #define MAILBOX_HPP
 
-#include <cstdint>
-#define uint64_t Data_t;
+#include <stdint.h>
 
 struct Mailbox {
+
+  using Data_t = uint64_t;
 
   Mailbox( void ) = default;
   Mailbox( const Mailbox& ) = delete;
@@ -28,8 +29,8 @@ struct Mailbox {
   }
 
 private:
-  struct pImpl_t;
-  pImpl_t* m;
+  bool   m_full;
+  Data_t m_data;
 };
 
 #endif /*MAILBOX_HPP*/
